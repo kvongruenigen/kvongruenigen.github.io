@@ -24,7 +24,7 @@
       x: Math.random() * width,
       y: Math.random() * height,
       radius: 0.6 + Math.random() * 1.3,
-      hue: 164 + Math.random() * 105,
+      hue: 185 + Math.random() * 78,
     }));
     schedule();
   }
@@ -46,8 +46,8 @@
     pointer.strength += ((pointer.inside ? 1 : 0) - pointer.strength) * 0.12;
     if (pointer.strength > 0.01) {
       const glow = context.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, 180);
-      glow.addColorStop(0, `rgba(101, 219, 218, ${0.25 * pointer.strength})`);
-      glow.addColorStop(0.48, `rgba(131, 92, 245, ${0.17 * pointer.strength})`);
+      glow.addColorStop(0, `rgba(118, 228, 242, ${0.25 * pointer.strength})`);
+      glow.addColorStop(0.48, `rgba(136, 171, 255, ${0.17 * pointer.strength})`);
       glow.addColorStop(1, "transparent");
       context.fillStyle = glow;
       context.fillRect(0, 0, width, height);
@@ -67,7 +67,7 @@
       const progress = Math.min((time - pulse.start) / 650, 1);
       context.beginPath();
       context.arc(pulse.x, pulse.y, 8 + progress * 140, 0, Math.PI * 2);
-      context.strokeStyle = `rgba(183, 159, 255, ${0.6 * (1 - progress)})`;
+      context.strokeStyle = `rgba(179, 155, 255, ${0.6 * (1 - progress)})`;
       context.stroke();
       if (progress === 1) pulse = undefined;
     }
